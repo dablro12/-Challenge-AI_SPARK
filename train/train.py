@@ -168,7 +168,7 @@ class Train(nn.Module):
         self.w = args.wandb
         if args.wandb == 'yes':
             wandb.init(
-                project = 'FIRE', 
+                project = 'satellite', 
                 entity = 'dablro1232',
                 notes = 'baseline',
                 config = args.__dict__,
@@ -233,7 +233,7 @@ class Train(nn.Module):
             self.loss = nn.BCELoss().to(self.device)
             # self.loss = custom_loss.FocalLoss(alpha = 0.25, gamma = 2.0).to(self.device)
             self.optimizer = optim.Adam(self.model.parameters(), lr = args.learning_rate)
-            self.scheduler = lr_scheduler.LambdaLR(self.optimizer, lr_lambda= lambda epoch: 0.95**epoch, last_epcoh = -1, verbose = True)
+            self.scheduler = lr_scheduler.LambdaLR(self.optimizer, lr_lambda= lambda epoch: 0.95**epoch, last_epoch = -1, verbose = True)
 
             self.epochs = args.epochs
             self.epoch = 0
@@ -270,12 +270,12 @@ class Train(nn.Module):
         plt.subplot(121)
         plt.plot(metrics['tr_bce'], label='Train Loss')
         plt.plot(metrics['vl_bce'], label='Valid Loss')
-        plt.title("BCE LOSS")
+        plt.title("BCE | DOWN GOOD")
         plt.legend()
         plt.subplot(122)
         plt.plot(metrics['tr_iou'], label='Train IoU')
         plt.plot(metrics['vl_iou'], label='Valid IoU')
-        plt.title("mIOU LOSS")
+        plt.title("mIOU | UP GOOD")
         plt.legend()
         plt.tight_layout()
         plt.savefig(os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}_loss.png'))
@@ -311,9 +311,11 @@ class Train(nn.Module):
             "description" : f"segmentation model training status : {epoch}/{epochs}"
         },
         os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}.pt'))
+        print(f"#"*30, "model save", "#"*30)
         
-    def calculate_iou(preds, masks, threshold=0.5):
+    def calculate_iou(self, preds, masks, threshold=0.5):
         # 예측 마스크를 이진 형태로 변환
+
         preds = (preds > threshold).float()
         
         intersection = torch.sum(preds * masks)
@@ -335,9 +337,9 @@ class Train(nn.Module):
                 masks = masks.permute(0,3,1,2)
                 
                 preds = self.model(images)
-                
+                print(preds)
                 train_loss = self.loss(preds, masks).to(self.device)
-                train_iou = self.calculate_iou(preds, masks).cpu().numpy()
+                train_iou = self.calculate_iou(preds.cpu().detach(), masks.cpu().detach()).cpu().detach().numpy()
 
                 self.optimizer.zero_grad()
                 train_loss.backward()
