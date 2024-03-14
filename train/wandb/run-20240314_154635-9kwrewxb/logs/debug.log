@@ -1,0 +1,26 @@
+2024-03-14 15:46:35,066 INFO    MainThread:257160 [wandb_setup.py:_flush():76] Current SDK version is 0.16.4
+2024-03-14 15:46:35,066 INFO    MainThread:257160 [wandb_setup.py:_flush():76] Configure stats pid to 257160
+2024-03-14 15:46:35,066 INFO    MainThread:257160 [wandb_setup.py:_flush():76] Loading settings from /home/oj/.config/wandb/settings
+2024-03-14 15:46:35,066 INFO    MainThread:257160 [wandb_setup.py:_flush():76] Loading settings from /home/oj/spark/train/wandb/settings
+2024-03-14 15:46:35,066 INFO    MainThread:257160 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-14 15:46:35,066 INFO    MainThread:257160 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-03-14 15:46:35,066 INFO    MainThread:257160 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train/run.py', 'program_abspath': '/home/oj/spark/train/run.py', 'program': './run.py'}
+2024-03-14 15:46:35,066 INFO    MainThread:257160 [wandb_init.py:_log_setup():526] Logging user logs to /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/logs/debug.log
+2024-03-14 15:46:35,067 INFO    MainThread:257160 [wandb_init.py:_log_setup():527] Logging internal logs to /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/logs/debug-internal.log
+2024-03-14 15:46:35,067 INFO    MainThread:257160 [wandb_init.py:init():566] calling init triggers
+2024-03-14 15:46:35,067 INFO    MainThread:257160 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'save_path': '../../satellite_model', 'version': 'v2', 'cuda': '0', 'num_workers': 4, 'wandb': 'yes', 'pretrain': 'no', 'pretrained_model': 'practice', 'error_signal': 'no', 'ts_batch_size': 40, 'vs_batch_size': 20, 'learning_rate': 0.001, 'epochs': 200, 'optimizer': 'AdamW', 'scheduler': 'lambda', 'loss': 'bce', 'valid_epoch': 8, 'model': 'unet', 'training_date': '240314'}
+2024-03-14 15:46:35,067 INFO    MainThread:257160 [wandb_init.py:init():616] starting backend
+2024-03-14 15:46:35,067 INFO    MainThread:257160 [wandb_init.py:init():620] setting up manager
+2024-03-14 15:46:35,074 INFO    MainThread:257160 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-03-14 15:46:35,076 INFO    MainThread:257160 [wandb_init.py:init():628] backend started and connected
+2024-03-14 15:46:35,088 INFO    MainThread:257160 [wandb_init.py:init():720] updated telemetry
+2024-03-14 15:46:35,139 INFO    MainThread:257160 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-03-14 15:46:35,758 INFO    MainThread:257160 [wandb_run.py:_on_init():2262] communicating current version
+2024-03-14 15:46:35,849 INFO    MainThread:257160 [wandb_run.py:_on_init():2271] got version response 
+2024-03-14 15:46:35,849 INFO    MainThread:257160 [wandb_init.py:init():804] starting run threads in backend
+2024-03-14 15:46:39,254 INFO    MainThread:257160 [wandb_run.py:_console_start():2241] atexit reg
+2024-03-14 15:46:39,255 INFO    MainThread:257160 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-03-14 15:46:39,255 INFO    MainThread:257160 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-03-14 15:46:39,255 INFO    MainThread:257160 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-03-14 15:46:39,256 INFO    MainThread:257160 [wandb_init.py:init():847] run started, returning control to user process
