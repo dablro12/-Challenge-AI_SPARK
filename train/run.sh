@@ -1,12 +1,12 @@
-python ./run_multi.py --model "convnext" \
-                --version "tranformed" \
+python ./run_multi.py --model "unet" \
+                --version "v1" \
                 --cuda "0"\
-                --ts_batch_size 50\
-                --vs_batch_size 8\
-                --epochs 500\
-                --loss "ce"\
-                --optimizer "Adam"\
-                --learning_rate 0.0001\
+                --ts_batch_size 80\
+                --vs_batch_size 32\
+                --epochs 200\
+                --loss "bce"\
+                --optimizer "AdamW"\
+                --learning_rate 0.001\
                 --scheduler "lambda"\
                 --pretrain "no" --pretrained_model "practice" --error_signal no\
                 --wandb "yes"\

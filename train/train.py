@@ -1,5 +1,67 @@
 #!/usr/bin/env python
 
+
+from utils.dataset import  CustomDataset
+import os
+import warnings
+warnings.filterwarnings("ignore")
+import glob
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
+import sys
+import pandas as pd
+from tqdm import tqdm
+import threading
+import random
+# import rasterio
+import os
+import numpy as np
+import sys
+from sklearn.utils import shuffle as shuffle_lists
+import numpy as np
+from sklearn.model_selection import train_test_split
+import joblib
+
+import torch
+
+#default
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import torch.optim.lr_scheduler as lr_scheduler
+
+#trasnform
+from torchvision import transforms
+
+#dataset
+from utils.dataset import CustomDataset
+from torch.utils.data import DataLoader, random_split
+import torchvision.models as models
+from torchsummary import summary
+from torchsampler import ImbalancedDatasetSampler
+
+
+from utils import models 
+#metric
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc
+import torchmetrics.functional as tf
+
+#numeric
+import numpy as np
+import pandas as pd 
+
+#visualization
+import matplotlib.pyplot as plt
+
+#system 
+from tqdm import tqdm
+import os 
+import wandb
+import datetime
+
+
 #default
 import torch
 import torch.nn as nn
@@ -50,42 +112,52 @@ class Train(nn.Module):
         print('=' * 100)
         print('=' * 100)
         print("\033[41mStart Initialization\033[0m")
-
+        
+        now = datetime.datetime.now()
+        formatted_now = now.strftime("%Y%m%d%H%M")
+        self.checkpoint_datetime = formatted_now
+        
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         print(f"\033[41mCUDA Status : {self.device.type}\033[0m")
         
         ########################## Data set & Data Loader ##############################
         # Data set & Data Loader
-        train_transform = transforms.Compose([
-            transforms.Grayscale(num_output_channels=3),
-            transforms.RandomResizedCrop(size = (224,224), antialias= True),
-            transforms.RandomRotation((0, 30), interpolation=transforms.InterpolationMode.NEAREST),
-            transforms.RandomHorizontalFlip(),
-            transforms.ColorJitter(brightness=0.25, contrast=0.25),
-            transforms.ToTensor(),
-        ])
-        valid_transform = transforms.Compose([
-            transforms.Resize((224,224), antialias=True),
-            transforms.Grayscale(num_output_channels=3),
+        self.train_csv = '../../dataset/train_meta.csv'
+        
+        self.train_transform = transforms.Compose([
+            # transforms.Grayscale(num_output_channels=3),
+            # transforms.RandomResizedCrop(size = (224,224), antialias= True),
+            # transforms.RandomRotation((0, 30), interpolation=transforms.InterpolationMode.NEAREST),
+            # transforms.RandomHorizontalFlip(),
+            # transforms.ColorJitter(brightness=0.25, contrast=0.25),
             transforms.ToTensor(),
         ])
 
 
-        train_dataset = CustomDataset(root_dir = '../data/data_multi_sono/train', transform= train_transform)
-        valid_dataset = CustomDataset(root_dir = '../data/data_multi_sono/valid', transform= valid_transform)
-
+        dataset = CustomDataset(
+            csv_path= self.train_csv,
+            # transform= self.train_transform,
+            transform= None, #None으로 세팅
+            MAX_PIXEL_VALUE= 65535,
+            band = (7,6,2) #기존 세팅 
+        )
+        # 훈련 및 검증 세트 분할
+        train_size = int(0.8 * len(dataset))
+        valid_size = len(dataset) - train_size 
+        self.train_dataset, self.valid_dataset = random_split(dataset, [train_size, valid_size])
+        
         self.train_loader = DataLoader(
-                                    dataset = train_dataset,
+                                    dataset = self.train_dataset,
                                     batch_size = args.ts_batch_size,
                                     # shuffle = True,
-                                    sampler= ImbalancedDatasetSampler(
-                                        train_dataset,
-                                        labels = train_dataset.getlabels()
-                                    ),
+                                    # sampler= ImbalancedDatasetSampler(
+                                    #     train_dataset,
+                                    #     labels = train_dataset.getlabels()
+                                    # ),
                                     pin_memory= True,
                                     )
         self.valid_loader = DataLoader(
-                                    dataset = valid_dataset,
+                                    dataset = self.valid_dataset,
                                     batch_size = args.vs_batch_size,
                                     shuffle = False,
                                     pin_memory= True,
@@ -96,7 +168,7 @@ class Train(nn.Module):
         self.w = args.wandb
         if args.wandb == 'yes':
             wandb.init(
-                project = 'PCOS', 
+                project = 'FIRE', 
                 entity = 'dablro1232',
                 notes = 'baseline',
                 config = args.__dict__,
@@ -118,39 +190,39 @@ class Train(nn.Module):
         
         ############################## Model Initialization & GPU Setting ##############################
         if args.pretrain == 'yes': #pretrained model 사용여부
-            wandb_name = args.pretrained_model
-            PATH = f"./model/{wandb_name}/{wandb_name}.pt"
-            print(f"Previous model : {PATH} | \033[41mstatus : Pretrained Update\033[0m")
+            pass
+            # wandb_name = args.pretrained_model
+            # PATH = f"./model/{wandb_name}/{wandb_name}.pt"
+            # print(f"Previous model : {PATH} | \033[41mstatus : Pretrained Update\033[0m")
             
-            checkpoint = torch.load(PATH)
+            # checkpoint = torch.load(PATH)
+            # self.model.to(self.device)
+            # self.model.load_state_dict(checkpoint['model_state_dict'])
             
-            self.model = pretrained_convnext_multi()
-            self.model.to(self.device)
-            self.model.load_state_dict(checkpoint['model_state_dict'])
-            
-            self.epochs = checkpoint['epochs']
-            if args.error_signal == 'yes': #-> 에러뜬거면 yes로 지정하기
-                self.epoch = checkpoint['epoch']
-            else:
-                self.epoch = 0
-            self.lr = checkpoint['learning_rate']
-            self.loss = checkpoint['loss'].to(self.device)
-            self.optimizer = optim.Adam(self.model.parameters(), lr = self.lr)
-            self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-            self.scheduler = optim.lr_scheduler.LambdaLR(optimizer = self.optimizer, lr_lambda=lambda epoch: 0.95 ** self.epochs)
-            self.name = checkpoint['model']
-            # self.best_loss = checkpoint['best_loss']
-            # self.t_loss_li = checkpoint['t_loss']
-            # self.v_loss_li = checkpoint['v_loss']
-            self.version = args.version
-            self.ts_batch = args.ts_batch_size
-            self.vs_batch = args.vs_batch_size
-            self.model_name = args.model    
-            self.model_save_path = f"{self.save_path}/{name}_{self.epoch}.pt"
-            self.best_loss = 1000000
+            # self.epochs = checkpoint['epochs']
+            # if args.error_signal == 'yes': #-> 에러뜬거면 yes로 지정하기
+            #     self.epoch = checkpoint['epoch']
+            # else:
+            #     self.epoch = 0
+            # self.lr = checkpoint['learning_rate']
+            # self.loss = checkpoint['loss'].to(self.device)
+            # self.optimizer = optim.Adam(self.model.parameters(), lr = self.lr)
+            # self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            # self.scheduler = optim.lr_scheduler.LambdaLR(optimizer = self.optimizer, lr_lambda=lambda epoch: 0.95 ** self.epochs)
+            # self.name = checkpoint['model']
+            # # self.best_loss = checkpoint['best_loss']
+            # # self.t_loss_li = checkpoint['t_loss']
+            # # self.v_loss_li = checkpoint['v_loss']
+            # self.version = args.version
+            # self.ts_batch = args.ts_batch_size
+            # self.vs_batch = args.vs_batch_size
+            # self.model_name = args.model    
+            # self.model_save_path = f"{self.save_path}/{name}_{self.epoch}.pt"
+            # self.best_loss = 1000000
             
         else:
-            self.model = pretrained_convnext_multi()
+            self.model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet',
+    in_channels=3, out_channels=1, init_features=32, pretrained=True)
             self.model.to(self.device)
 
             print(f"Training Model : {args.model} | status : \033[42mNEW\033[0m")
@@ -158,13 +230,11 @@ class Train(nn.Module):
             ############################# Hyper Parameter Setting ################################
             # self.class_weights = torch.Tensor([0.09592459044406017, 0.3648678994488848, 0.539207510107055])    
             # self.loss = nn.CrossEntropyLoss(weight= self.class_weights).to(self.device)
-            self.loss = nn.CrossEntropyLoss().to(self.device)
+            self.loss = nn.BCELoss().to(self.device)
             # self.loss = custom_loss.FocalLoss(alpha = 0.25, gamma = 2.0).to(self.device)
             self.optimizer = optim.Adam(self.model.parameters(), lr = args.learning_rate)
-            self.scheduler = optim.lr_scheduler.LambdaLR(optimizer = self.optimizer,
-                                                        lr_lambda=lambda epoch: 0.95 ** epoch,
-                                                        last_epoch = -1,
-                                                        verbose= True)
+            self.scheduler = lr_scheduler.LambdaLR(self.optimizer, lr_lambda= lambda epoch: 0.95**epoch, last_epcoh = -1, verbose = True)
+
             self.epochs = args.epochs
             self.epoch = 0
             self.ve = args.valid_epoch 
@@ -181,14 +251,10 @@ class Train(nn.Module):
         self.early_stopping_epochs, self.early_stop_cnt = 30, 0
         ############################### Metrics Setting########################################
         self.metrics = {
-            'train_loss' : [],
-            'valid_loss' : [],
-            'train_accuracy' : [],
-            'train_f1' : [],
-            'train_recall' : [],
-            'valid_accuracy' : [],
-            'valid_f1' : [],
-            'valid_recall' : [],
+            'tr_bce' : [],
+            'vl_bce' : [],
+            'tr_iou' : [],
+            'vl_iou' : [],
         }
 
         ############################### Metrics Setting########################################
@@ -196,145 +262,157 @@ class Train(nn.Module):
         # Training 
         print("\033[41mFinished Initalization\033[0m")
         print("\033[41mStart Training\033[0m")
+        
+        
+    def checkpoint(self, SAVE_DIR, checkpoint_datetime, model, optimizer, lr, loss, metrics, epoch, epochs, images, masks, preds):
+        # loss plot
+        plt.figure(figsize=(10, 7))
+        plt.subplot(121)
+        plt.plot(metrics['tr_bce'], label='Train Loss')
+        plt.plot(metrics['vl_bce'], label='Valid Loss')
+        plt.title("BCE LOSS")
+        plt.legend()
+        plt.subplot(122)
+        plt.plot(metrics['tr_iou'], label='Train IoU')
+        plt.plot(metrics['vl_iou'], label='Valid IoU')
+        plt.title("mIOU LOSS")
+        plt.legend()
+        plt.tight_layout()
+        plt.savefig(os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}_loss.png'))
+        plt.close()
+        
+        # mask plot
+        plt.figure(figsize=(10, 7))
+        plt.subplot(131)
+        plt.imshow(images[0].cpu().permute(1,2,0))
+        plt.title('image')
+        plt.axis('off')
+        plt.subplot(132)
+        plt.imshow(masks[0].cpu().permute(1,2,0))
+        plt.title('mask')
+        plt.axis('off')
+        plt.subplot(133)
+        plt.imshow(preds[0].cpu().permute(1,2,0))
+        plt.title('pred')
+        plt.axis('off')
+        plt.tight_layout()
+        plt.savefig(os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}_mask.png'))
+        plt.close()
+        
+        torch.save({
+            "model" : f"{epoch}",
+            "epoch" : epoch,
+            "epochs" : epochs,
+            "model_state_dict" : model.state_dict(),
+            "optimizer_state_dict" : optimizer.state_dict(),
+            "learning_rate" : lr,
+            "loss" : loss,
+            "metric" : metrics,
+            "description" : f"segmentation model training status : {epoch}/{epochs}"
+        },
+        os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}.pt'))
+        
+    def calculate_iou(preds, masks, threshold=0.5):
+        # 예측 마스크를 이진 형태로 변환
+        preds = (preds > threshold).float()
+        
+        intersection = torch.sum(preds * masks)
+        union = torch.sum((preds + masks) > 0)
+        
+        iou = (intersection + 1e-7) / (union + 1e-7)  # 0으로 나누는 경우를 방지하기 위해 작은 값(1e-7)을 추가
+        
+        return iou
     
     def fit(self):
         for epoch in tqdm(range(self.epoch, self.epochs)):
             train_losses, valid_losses = 0., 0.
-            train_target, train_pred, valid_target, valid_pred = [], [], [], [] 
+            train_ious, valid_ious = 0., 0.
             
             self.model.train()
-            for _, (inputs, labels) in tqdm(enumerate(self.train_loader)):
-                self.optimizer.zero_grad()
-                inputs, labels = inputs.to(self.device), labels.type(torch.LongTensor).to(self.device)
-                outputs = self.model(inputs)
+            for _, (images, masks) in tqdm(enumerate(self.train_loader), total=len(self.train_loader)):
+                images, masks = images.to(self.device), masks.to(self.device)
+                images = images.permute(0,3,1,2)
+                masks = masks.permute(0,3,1,2)
                 
-                train_loss = self.loss(outputs, labels)
+                preds = self.model(images)
+                
+                train_loss = self.loss(preds, masks).to(self.device)
+                train_iou = self.calculate_iou(preds, masks).cpu().numpy()
+
+                self.optimizer.zero_grad()
                 train_loss.backward()
                 self.optimizer.step()
+                
                 train_losses += train_loss.item()
-                
-                # 예측 값을 이진 레이블로 변환
-                pred = torch.argmax(outputs, dim = 1)
-                train_target.extend(labels.detach().cpu().numpy())
-                train_pred.extend(pred.detach().cpu().numpy())
-                
-            self.metrics['train_loss'].append(train_losses/len(self.train_loader))
-            self.metrics['train_accuracy'].append(accuracy_score(train_target, train_pred))
-            self.metrics['train_f1'].append(f1_score(train_target, train_pred, average= 'weighted'))
-            self.metrics['train_recall'].append(recall_score(train_target, train_pred, average= 'weighted'))
-            
+                train_ious += train_iou
             self.scheduler.step()
+
+            self.metrics['tr_bce'].append(train_losses / len(self.train_loader))
+            self.metrics['tr_iou'].append(train_ious / len(self.train_loader))
+            print(f"Epoch : {epoch}/{self.epochs} | Train Loss : {train_losses / len(self.train_loader)}")
+            print(f"Epoch : {epoch}/{self.epochs} | Train IOU : {train_ious / len(self.train_loader)}")
+                
             lr = self.optimizer.param_groups[0]["lr"]
                 
             if self.w == "yes":
                 wandb.log({
                     "Learning_Rate" : lr,
-                    "train_LOSS" : self.metrics['train_loss'][-1],
-                    "train_ACC" : self.metrics['train_accuracy'][-1],
-                    "train_F1Score" : self.metrics['train_f1'][-1],
-                    "train_RECALL" : self.metrics['train_recall'][-1],
+                    "tr_bce" : self.metrics['tr_bce'][-1],
+                    "tr_mIOU" : self.metrics['tr_iou'][-1],
                 }, step = epoch)
                 
         
             ################################# valid #################################
             with torch.no_grad():
                 self.model.eval()
-                if epoch % 1 == 0: 
-                    for _ , (inputs, labels) in enumerate(self.valid_loader):
-                        inputs, labels = inputs.to(self.device), labels.type(torch.LongTensor).to(self.device)
-                        outputs = self.model(inputs)
-                        
-                        valid_loss = self.loss(outputs, labels)
-                        valid_losses += valid_loss.item()
-
-                        # 예측 값을 이진 레이블로 변환
-                        pred = torch.argmax(outputs, dim = 1)
-                        valid_target.extend(labels.detach().cpu().numpy())
-                        valid_pred.extend(pred.detach().cpu().numpy())
-                        
-                    self.metrics['valid_loss'].append(valid_losses/len(self.valid_loader))
-                    self.metrics['valid_accuracy'].append(accuracy_score(valid_target, valid_pred))
-                    self.metrics['valid_f1'].append(f1_score(valid_target, valid_pred, average= 'weighted'))
-                    self.metrics['valid_recall'].append(recall_score(valid_target, valid_pred, average= 'weighted'))
+                for _, (images, masks) in tqdm(enumerate(self.valid_loader), total=len(self.valid_loader)):
+                    images, masks = images.to(self.device), masks.to(self.device)
+                    images = images.permute(0,3,1,2)
+                    masks = masks.permute(0,3,1,2)
                     
+                    preds = self.model(images)
                     
-            print("#"*100)    
-            print(f"LOSS : {self.metrics['train_loss'][-1]} | {self.metrics['valid_loss'][-1]}\n ACC : {self.metrics['train_accuracy'][-1]} | {self.metrics['valid_accuracy'][-1]}\n F1 : {self.metrics['train_f1'][-1]} | {self.metrics['valid_f1'][-1]}\n RECALL : {self.metrics['train_recall'][-1]} | {self.metrics['valid_recall'][-1]}")
-            print("#"*100)
+                    valid_loss = self.loss(preds, masks).to(self.device)
+                    valid_iou = self.calculate_iou(preds, masks).cpu().numpy()
                     
+                    valid_losses += valid_loss.item()
+                    valid_ious += valid_iou
+            
+            self.metrics['vl_bce'].append(valid_losses / len(self.valid_loader))
+            self.metrics['vl_iou'].append(valid_ious / len(self.valid_loader))
+            print(f"Epoch : {epoch}/{self.epochs} | Valid Loss : {valid_losses / len(self.valid_loader)}")
+            print(f"Epoch : {epoch}/{self.epochs} | Valid IOU : {valid_ious / len(self.valid_loader)}")
+                
             ## Display to Wandb for validation loss
             if self.w == "yes":
                 wandb.log({
-                    "valid_LOSS" : self.metrics['valid_loss'][-1],
-                    "valid_ACC" : self.metrics['valid_accuracy'][-1],
-                    "valid_F1Score" : self.metrics['valid_f1'][-1],
-                    "valid_RECALL" : self.metrics['valid_recall'][-1],
+                    "vl_bce" : self.metrics['vl_bce'][-1],
+                    "vl_mIOU" : self.metrics['vl_iou'][-1],
                 }, step = epoch)
             
             # Early Sooping
-            if self.metrics['valid_loss'][-1] > self.best_loss:
-                self.early_stop_cnt += 1
-            else:
-                self.best_loss = self.metrics['valid_loss'][-1]
+            self.best_loss = np.array(self.metrics['vl_bce'])[:-1].max()
+            if valid_losses > self.best_loss:
                 self.early_stop_cnt = 0
-
-            # #valid loss가 valid_loss 이전까지 Loss보다 작으면 저장하게 만듬.
-            if len(self.metrics['valid_loss']) > 1 : #valid loss 리스트가 값이 잇을때
-                min_valid_loss = np.min(np.array(self.metrics['valid_loss'][:-1]))
-                if self.metrics['valid_loss'][-1] < min_valid_loss:
-                    torch.save({
-                        "model" : f"{self.model_name}" + f"{self.version}_{epoch}",
-                        "epoch" : epoch,
-                        "epochs" : self.epochs,
-                        "model_state_dict" : self.model.state_dict(),
-                        "optimizer_state_dict" : self.optimizer.state_dict(),
-                        "learning_rate" : lr,
-                        "loss" : self.loss,
-                        "best_loss" : self.best_loss,
-                        "metric" : self.metrics,
-                        "description" : f"Training status : {epoch}/{self.epochs}"
-                    },
-                    f"{self.save_path}/{self.name}_{epoch}.pt")
-                    
-                    print(f"BEST VALID LOSS : {self.metrics['valid_loss'][-1]} | SAVE MODEL PATH : {self.save_path}/{self.name}_{epoch}")
-
-            # 조기 종료 조건 확인
-            if self.early_stop_cnt >= self.early_stopping_epochs:
-                print(f"Early Stops!!! : {epoch}/{self.epochs}")
-                torch.save({
-                    "model" : f"{self.model_name}" + f"{self.version}_{epoch}",
-                    "epoch" : epoch,
-                    "epochs" : self.epochs,
-                    "model_state_dict" : self.model.state_dict(),
-                    "optimizer_state_dict" : self.optimizer.state_dict(),
-                    "learning_rate" : lr,
-                    "loss" : self.loss,
-                    "metric" : self.metrics,
-                    "description" : f"Training status : {epoch}/{self.epochs}"
-                },
-                f"{self.save_path}/{self.name}_{epoch}_e.pt")
-                
-                print(f"SAVE MODEL PATH : {self.save_path}/{self.name}_{epoch}_e.pt")
-                break
-
-            elif epoch % 10 == 0 or epoch +1 == self.epochs:
-                torch.save({
-                    "model" : f"{self.model_name}" + f"{self.version}_{epoch}",
-                    "epoch" : epoch,
-                    "epochs" : self.epochs,
-                    "model_state_dict" : self.model.state_dict(),
-                    "optimizer_state_dict" : self.optimizer.state_dict(),
-                    "learning_rate" : lr,
-                    "loss" : self.loss,
-                    "metric" : self.metrics,
-                    "description" : f"Training status : {epoch}/{self.epochs}"
-                },
-                f"{self.save_path}/{self.name}_{epoch}.pt")
-                
-                print(f"PER {epoch} | SAVE MODEL PATH : {self.save_path}/{self.name}_{epoch}.pt")
-                    
+                self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
+            else:
+                self.early_stop_cnt += 1
+                if self.early_stop_cnt >= self.early_stopping_epochs:
+                    print(f"Early Stops!!! : {epoch}/{self.epochs}")
+                    self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
+                    break
+            
+            try:
+                if valid_losses > np.array(self.metrics['vl_bce'])[-1].max():
+                    self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
+            except Exception as e:
+                print(e)
+                pass 
 
         print("="*100)
         print(f"\033[41mFinished Training\033[0m | Save model PATH : {self.model_save_path}")
         if self.w == "yes":
             wandb.finish()
+            
+            
+    
