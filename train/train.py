@@ -171,6 +171,7 @@ class Train(nn.Module):
                 project = 'satellite', 
                 entity = 'dablro1232',
                 notes = 'baseline',
+                # epochs = args.epochs,
                 config = args.__dict__,
             )
             name = args.model + f'_{args.version}' + f'_{args.training_date}'
@@ -337,9 +338,8 @@ class Train(nn.Module):
                 masks = masks.permute(0,3,1,2)
                 
                 preds = self.model(images)
-                print(preds)
                 train_loss = self.loss(preds, masks).to(self.device)
-                train_iou = self.calculate_iou(preds.cpu().detach(), masks.cpu().detach()).cpu().detach().numpy()
+                train_iou = self.calculate_iou(preds, masks).cpu().detach().numpy()
 
                 self.optimizer.zero_grad()
                 train_loss.backward()

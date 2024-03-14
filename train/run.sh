@@ -9,4 +9,4 @@ python ./run.py --model "unet" \
                 --learning_rate 0.001\
                 --scheduler "lambda"\
                 --pretrain "no" --pretrained_model "practice" --error_signal no\
-                --wandb "no"\
+                --wandb "yes"\
