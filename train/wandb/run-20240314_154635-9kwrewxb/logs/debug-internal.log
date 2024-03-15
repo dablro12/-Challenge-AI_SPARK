@@ -956,3 +956,199 @@
 2024-03-14 16:02:56,160 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
 2024-03-14 16:02:58,161 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
 2024-03-14 16:03:00,162 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:01,377 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:02,163 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:04,164 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:05,917 DEBUG   SenderThread:257225 [sender.py:send():378] send: stats
+2024-03-14 16:03:06,165 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:06,578 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:08,166 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:09,282 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:03:09,282 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:03:09,283 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:03:10,167 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:11,751 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:12,168 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:14,169 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:16,169 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:16,958 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:18,170 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:20,171 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:22,138 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:22,172 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:24,173 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:24,282 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:03:24,282 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:03:24,283 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:03:26,174 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:27,312 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:28,175 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:30,176 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:32,177 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:32,497 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:34,177 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:35,917 DEBUG   SenderThread:257225 [sender.py:send():378] send: stats
+2024-03-14 16:03:36,178 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:37,711 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:38,179 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:39,282 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:03:39,282 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:03:39,283 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:03:40,180 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:42,181 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:42,988 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:44,182 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:46,183 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:48,184 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:48,326 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:50,185 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:52,186 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:53,650 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:03:54,187 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:54,284 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:03:54,284 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:03:54,285 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:03:56,188 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:58,188 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:03:59,000 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:00,189 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:02,190 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:04,190 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:04,331 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:05,918 DEBUG   SenderThread:257225 [sender.py:send():378] send: stats
+2024-03-14 16:04:06,191 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:08,192 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:09,284 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:04:09,285 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:04:09,288 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:04:10,193 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:11,193 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:12,194 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:14,195 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:16,196 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:16,298 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:18,197 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:20,198 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:21,708 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:22,198 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:24,199 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:24,286 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:04:24,286 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:04:24,287 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:04:26,200 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:27,120 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:28,201 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:30,202 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:32,203 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:32,536 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:34,204 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:35,919 DEBUG   SenderThread:257225 [sender.py:send():378] send: stats
+2024-03-14 16:04:36,205 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:37,902 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:38,205 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:39,285 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:04:39,286 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:04:39,290 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:04:40,206 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:42,207 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:43,292 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:44,208 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:46,209 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:48,210 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:48,631 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:50,211 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:52,212 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:54,004 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:04:54,213 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:54,286 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:04:54,287 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:04:54,288 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:04:56,214 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:58,215 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:04:59,430 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:00,216 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:02,216 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:04,217 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:04,838 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:05,920 DEBUG   SenderThread:257225 [sender.py:send():378] send: stats
+2024-03-14 16:05:06,218 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:08,219 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:09,290 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:05:09,290 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:05:09,291 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:05:10,220 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:10,221 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:12,222 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:14,223 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:15,590 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:16,224 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:18,225 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:20,226 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:20,938 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:22,227 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:24,228 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:24,287 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:05:24,288 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:05:24,288 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:05:26,229 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:26,357 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:28,230 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:30,231 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:31,731 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:32,232 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:34,232 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:35,921 DEBUG   SenderThread:257225 [sender.py:send():378] send: stats
+2024-03-14 16:05:36,233 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:37,135 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:38,234 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:39,288 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:05:39,288 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:05:39,289 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:05:40,235 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:42,236 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:42,574 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:44,237 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:46,238 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:47,962 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:48,239 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:50,240 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:52,241 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:53,419 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:05:54,242 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:54,288 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:05:54,289 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:05:54,293 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:05:56,243 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:58,244 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:05:58,821 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:06:00,245 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:02,246 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:04,213 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:06:04,247 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:05,922 DEBUG   SenderThread:257225 [sender.py:send():378] send: stats
+2024-03-14 16:06:06,248 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:08,249 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:09,289 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:06:09,290 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:06:09,293 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:06:09,620 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:06:10,249 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:12,250 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:14,251 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:15,019 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:06:16,253 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:18,254 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:20,255 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:20,458 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:06:22,255 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:24,256 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:24,289 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-14 16:06:24,289 DEBUG   SenderThread:257225 [sender.py:send_request():405] send_request: stop_status
+2024-03-14 16:06:24,293 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-14 16:06:25,904 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:06:26,257 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:28,258 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:30,258 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:31,377 DEBUG   HandlerThread:257225 [handler.py:handle_request():146] handle_request: status_report
+2024-03-14 16:06:32,259 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
+2024-03-14 16:06:34,260 INFO    Thread-12 :257225 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/oj/spark/train/wandb/run-20240314_154635-9kwrewxb/files/output.log
