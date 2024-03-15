@@ -1,0 +1,33 @@
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_setup.py:_flush():76] Current SDK version is 0.16.4
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_setup.py:_flush():76] Configure stats pid to 2783340
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_setup.py:_flush():76] Loading settings from /home/eiden/.config/wandb/settings
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_setup.py:_flush():76] Loading settings from /home/eiden/eiden/satellite/train/wandb/settings
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train/run.py', 'program_abspath': '/home/eiden/eiden/satellite/train/run.py', 'program': './run.py'}
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_init.py:_log_setup():526] Logging user logs to /home/eiden/eiden/satellite/train/wandb/run-20240314_211052-zmm92bu5/logs/debug.log
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_init.py:_log_setup():527] Logging internal logs to /home/eiden/eiden/satellite/train/wandb/run-20240314_211052-zmm92bu5/logs/debug-internal.log
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_init.py:init():566] calling init triggers
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'save_path': '../../satellite_model', 'version': 'v1', 'cuda': '0', 'num_workers': 4, 'wandb': 'yes', 'pretrain': 'no', 'pretrained_model': 'practice', 'error_signal': 'no', 'ts_batch_size': 80, 'vs_batch_size': 40, 'learning_rate': 0.001, 'epochs': 200, 'optimizer': 'AdamW', 'scheduler': 'lambda', 'loss': 'bce', 'valid_epoch': 8, 'model': 'unet', 'training_date': '240314'}
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_init.py:init():616] starting backend
+2024-03-14 21:10:52,855 INFO    MainThread:2783340 [wandb_init.py:init():620] setting up manager
+2024-03-14 21:10:52,857 INFO    MainThread:2783340 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-03-14 21:10:52,857 INFO    MainThread:2783340 [wandb_init.py:init():628] backend started and connected
+2024-03-14 21:10:52,862 INFO    MainThread:2783340 [wandb_init.py:init():720] updated telemetry
+2024-03-14 21:10:52,874 INFO    MainThread:2783340 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-03-14 21:10:53,625 INFO    MainThread:2783340 [wandb_run.py:_on_init():2262] communicating current version
+2024-03-14 21:10:53,936 INFO    MainThread:2783340 [wandb_run.py:_on_init():2271] got version response 
+2024-03-14 21:10:53,936 INFO    MainThread:2783340 [wandb_init.py:init():804] starting run threads in backend
+2024-03-14 21:10:55,818 INFO    MainThread:2783340 [wandb_run.py:_console_start():2241] atexit reg
+2024-03-14 21:10:55,818 INFO    MainThread:2783340 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-03-14 21:10:55,818 INFO    MainThread:2783340 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-03-14 21:10:55,818 INFO    MainThread:2783340 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-03-14 21:10:55,818 INFO    MainThread:2783340 [wandb_init.py:init():847] run started, returning control to user process
+2024-03-14 23:28:28,345 INFO    MainThread:2783340 [wandb_run.py:_finish():1970] finishing run dablro1232/satellite/zmm92bu5
+2024-03-14 23:28:28,353 INFO    MainThread:2783340 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 0
+2024-03-14 23:28:28,353 INFO    MainThread:2783340 [wandb_run.py:_restore():2193] restore
+2024-03-14 23:28:28,353 INFO    MainThread:2783340 [wandb_run.py:_restore():2199] restore done
+2024-03-14 23:28:41,838 INFO    MainThread:2783340 [wandb_run.py:_footer_history_summary_info():3851] rendering history
+2024-03-14 23:28:41,839 INFO    MainThread:2783340 [wandb_run.py:_footer_history_summary_info():3883] rendering summary
+2024-03-14 23:28:41,844 INFO    MainThread:2783340 [wandb_run.py:_footer_sync_info():3810] logging synced files
