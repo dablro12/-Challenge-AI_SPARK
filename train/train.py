@@ -400,16 +400,18 @@ class Train(nn.Module):
                 }, step = epoch)
             
             # Early Sooping
-            if valid_losses > self.best_loss:
-                self.best_loss = valid_losses
+            if valid_losses < self.best_loss:
                 self.early_stop_cnt = 0
-                self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
             else:
+                self.best_loss = valid_losses
                 self.early_stop_cnt += 1
                 if self.early_stop_cnt >= self.early_stopping_epochs:
                     print(f"Early Stops!!! : {epoch}/{self.epochs}")
                     self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
                     break
+                else: # 이전 값보다 베스트면 저장 
+                    self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
+                    
             try:
                 if valid_losses > np.array(self.metrics['vl_bce'])[-1].max():
                     self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
