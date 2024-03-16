@@ -1,9 +1,9 @@
 nohup python ./run.py --model "unet" \
-                      --version "v1" \
+                      --version "v2[95:5]" \
                       --cuda "0" \
                       --ts_batch_size 80 \
                       --vs_batch_size 40 \
-                      --epochs 200 \
+                      --epochs 50 \
                       --loss "bce" \
                       --optimizer "AdamW" \
                       --learning_rate 0.001 \

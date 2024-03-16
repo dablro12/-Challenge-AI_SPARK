@@ -142,7 +142,7 @@ class Train(nn.Module):
             band = (7,6,2) #기존 세팅 
         )
         # 훈련 및 검증 세트 분할
-        train_size = int(0.8 * len(dataset))
+        train_size = int(0.95 * len(dataset))
         valid_size = len(dataset) - train_size 
         self.train_dataset, self.valid_dataset = random_split(dataset, [train_size, valid_size])
         
@@ -240,7 +240,7 @@ class Train(nn.Module):
             # self.loss = nn.CrossEntropyLoss(weight= self.class_weights).to(self.device)
             self.loss = nn.BCELoss().to(self.device)
             # self.loss = custom_loss.FocalLoss(alpha = 0.25, gamma = 2.0).to(self.device)
-            self.optimizer = optim.Adam(self.model.parameters(), lr = args.learning_rate)
+            self.optimizer = optim.AdamW(self.model.parameters(), lr = args.learning_rate)
             self.scheduler = lr_scheduler.LambdaLR(self.optimizer, lr_lambda= lambda epoch: 0.95**epoch, last_epoch = -1, verbose = True)
 
             self.epochs = args.epochs
@@ -400,10 +400,8 @@ class Train(nn.Module):
                 }, step = epoch)
             
             # Early Sooping
-            if valid_losses > self.best_loss:
-                self.best_loss = valid_losses
+            if valid_losses < self.best_loss:
                 self.early_stop_cnt = 0
-                self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
             else:
                 self.early_stop_cnt += 1
                 if self.early_stop_cnt >= self.early_stopping_epochs:
