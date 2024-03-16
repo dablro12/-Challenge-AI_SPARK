@@ -43,7 +43,7 @@ from torchsummary import summary
 from torchsampler import ImbalancedDatasetSampler
 
 
-from utils import models 
+from train.utils.networks import models 
 #metric
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc
 import torchmetrics.functional as tf
@@ -76,7 +76,7 @@ from utils.dataset import CustomDataset
 from torch.utils.data import DataLoader
 #model 
 import torchvision.models as models
-from utils.models import *
+from train.utils.networks.models import *
 import utils.loss as loss 
 
 #metric
