@@ -11,5 +11,5 @@ nohup python ./run.py --model "Att-Unet" \
                       --pretrain "no" \
                       --pretrained_model "practice" \
                       --error_signal no \
-                      --wandb "no" \
+                      --wandb "yes" \
                       > output.log 2>&1 &
