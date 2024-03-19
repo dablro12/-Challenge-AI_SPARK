@@ -1,7 +1,48 @@
+from typing import Any
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.nn import init
+import segmentation_models_pytorch as smp 
+
+class get_pretrained_model:
+    def __init__(self, model_name):
+        self.model_name = model_name
+    
+    def get(self):
+        if self.model_name == 'unet':
+            model = self.U_Net()
+        elif self.model_name == 'r2unet':
+            model = R2U_Net()
+        elif self.model_name == 'attunet':
+            model = AttU_Net()
+        elif self.model_name == 'r2attunet':
+            model = R2AttU_Net()
+        elif self.model_name == 'unet++':
+            model = self.unet_plus_plus()
+        else:
+            raise NotImplementedError('model [{:s}] not recognized'.format(self.model_name))
+        return model
+    
+    def U_Net(self):
+        model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet',
+                               in_channels=3, out_channels=1, init_features=32, pretrained=True)
+        model.conv = nn.Sequential(
+            nn.Conv2d(32, 1, kernel_size=(1, 1), stride=(1, 1)),
+            nn.Sigmoid()
+        )
+        return model
+    def unet_plus_plus(self):
+        model = smp.UnetPlusPlus(
+            encoder_name= "resnet34",
+            encoder_weights= "imagenet",
+            in_channels = 3,
+            activation= 'sigmoid',
+            classes = 1
+            )
+        return model 
+
+    
 
 def init_weights(net, init_type='normal', gain=0.02):
     def init_func(m):
