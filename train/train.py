@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+import sys
+sys.path.append('../')
 
 from utils.dataset import  CustomDataset
 import os
@@ -76,6 +77,7 @@ from utils.dataset import CustomDataset
 from torch.utils.data import DataLoader
 #model 
 import torchvision.models as models
+from network.models import U_Net, R2U_Net, AttU_Net, R2AttU_Net
 from utils.models import *
 import utils.loss as loss 
 
@@ -130,7 +132,7 @@ class Train(nn.Module):
             # transforms.RandomRotation((0, 30), interpolation=transforms.InterpolationMode.NEAREST),
             # transforms.RandomHorizontalFlip(),
             # transforms.ColorJitter(brightness=0.25, contrast=0.25),
-            transforms.ToTensor(),
+            # transforms.ToTensor(),
         ])
 
 
@@ -229,8 +231,8 @@ class Train(nn.Module):
             else:
                 torch.manual_seed_all(42)
                 
-            self.model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet',
-    in_channels=3, out_channels=1, init_features=32, pretrained=True)
+            # self.model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet', in_channels=3, out_channels=1, init_features=32, pretrained=True)
+            self.model = AttU_Net(img_ch=3, output_ch=1)
             self.model.to(self.device)
 
             print(f"Training Model : {args.model} | status : \033[42mNEW\033[0m")

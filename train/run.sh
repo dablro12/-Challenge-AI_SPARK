@@ -1,8 +1,8 @@
-nohup python ./run.py --model "unet" \
-                      --version "v2" \
+nohup python ./run.py --model "Att-Unet" \
+                      --version "v3" \
                       --cuda "0" \
-                      --ts_batch_size 40 \
-                      --vs_batch_size 20 \
+                      --ts_batch_size 12\
+                      --vs_batch_size 2 \
                       --epochs 200 \
                       --loss "bce" \
                       --optimizer "AdamW" \
@@ -11,5 +11,5 @@ nohup python ./run.py --model "unet" \
                       --pretrain "no" \
                       --pretrained_model "practice" \
                       --error_signal no \
-                      --wandb "yes" \
+                      --wandb "no" \
                       > output.log 2>&1 &
