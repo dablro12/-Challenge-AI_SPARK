@@ -1,8 +1,8 @@
 nohup python ./run.py --model "unet" \
-                      --version "v8" \
+                      --version "v9" \
                       --cuda "0" \
-                      --ts_batch_size 40\
-                      --vs_batch_size 4\
+                      --ts_batch_size 80\
+                      --vs_batch_size 8\
                       --epochs 200 \
                       --loss "bce" \
                       --optimizer "AdamW" \
