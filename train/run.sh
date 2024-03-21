@@ -1,7 +1,7 @@
-nohup python ./run.py --model "Att-Unet" \
-                      --version "v3" \
+nohup python ./run.py --model "R2Att-Unet" \
+                      --version "v4" \
                       --cuda "0" \
-                      --ts_batch_size 4\
+                      --ts_batch_size 5\
                       --vs_batch_size 1\
                       --epochs 200 \
                       --loss "bce" \

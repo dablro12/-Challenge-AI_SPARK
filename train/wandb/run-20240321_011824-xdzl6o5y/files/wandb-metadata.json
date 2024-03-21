@@ -1,0 +1,117 @@
+{
+    "os": "Linux-5.4.0-173-generic-x86_64-with-glibc2.17",
+    "python": "3.8.18",
+    "heartbeatAt": "2024-03-21T01:18:25.307963",
+    "startedAt": "2024-03-21T01:18:24.453682",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--model",
+        "R2Att-Unet",
+        "--version",
+        "v4",
+        "--cuda",
+        "0",
+        "--ts_batch_size",
+        "5",
+        "--vs_batch_size",
+        "1",
+        "--epochs",
+        "200",
+        "--loss",
+        "bce",
+        "--optimizer",
+        "AdamW",
+        "--learning_rate",
+        "0.001",
+        "--scheduler",
+        "lambda",
+        "--pretrain",
+        "no",
+        "--pretrained_model",
+        "practice",
+        "--error_signal",
+        "no",
+        "--wandb",
+        "yes"
+    ],
+    "state": "running",
+    "program": "./run.py",
+    "codePathLocal": "run.py",
+    "codePath": "train/run.py",
+    "git": {
+        "remote": "https://github.com/dablro12/-Challenge-AI_SPARK.git",
+        "commit": "862b5cec86538982902f7846e9a20dd551a2e8ca"
+    },
+    "email": "dablro12@github.com",
+    "root": "/home/oj/spark",
+    "host": "bmegpu03",
+    "username": "oj",
+    "executable": "/home/oj/anaconda3/envs/fire/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1821.48625,
+        "min": 1200.0,
+        "max": 3900.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1307.106,
+            "min": 1200.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3620.069,
+            "min": 1200.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1200.017,
+            "min": 1200.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1200.013,
+            "min": 1200.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1291.696,
+            "min": 1200.0,
+            "max": 3900.0
+        },
+        {
+            "current": 3552.871,
+            "min": 1200.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1200.013,
+            "min": 1200.0,
+            "max": 3900.0
+        },
+        {
+            "current": 1200.105,
+            "min": 1200.0,
+            "max": 3900.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 684.6173858642578,
+            "used": 127.26128005981445
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3080",
+            "memory_total": 10737418240
+        }
+    ],
+    "memory": {
+        "total": 30.9464111328125
+    }
+}

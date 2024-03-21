@@ -245,7 +245,7 @@ class Train(nn.Module):
             # self.loss = nn.CrossEntropyLoss(weight= self.class_weights).to(self.device)
             self.loss = nn.BCELoss().to(self.device)
             # self.loss = custom_loss.FocalLoss(alpha = 0.25, gamma = 2.0).to(self.device)
-            self.optimizer = optim.Adam(self.model.parameters(), lr = args.learning_rate)
+            self.optimizer = optim.AdamW(self.model.parameters(), lr = args.learning_rate)
             self.scheduler = lr_scheduler.LambdaLR(self.optimizer, lr_lambda= lambda epoch: 0.95**epoch, last_epoch = -1, verbose = True)
 
             self.epochs = args.epochs
