@@ -234,7 +234,7 @@ class Train(nn.Module):
                 torch.manual_seed_all(42)
                 
             # self.model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet', in_channels=3, out_channels=1, init_features=32, pretrained=True)
-            self.model = get_pretrained_model('r2attunet').get()
+            self.model = get_pretrained_model('manet').get()
             self.model.to(self.device)
 
             print(f"Training Model : {args.model} | status : \033[42mNEW\033[0m")

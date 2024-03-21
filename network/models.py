@@ -20,6 +20,8 @@ class get_pretrained_model:
             model = R2AttU_Net()
         elif self.model_name == 'unet++':
             model = self.unet_plus_plus()
+        elif self.model_name == 'manet':
+            model = self.manet()
         else:
             raise NotImplementedError('model [{:s}] not recognized'.format(self.model_name))
 
@@ -43,6 +45,16 @@ class get_pretrained_model:
             classes = 1
             )
         return model 
+    
+    def manet(self):
+        model = smp.MAnet(
+            encoder_name= "resnet152",
+            encoder_weights= "imagenet",
+            in_channels = 3,
+            activation= 'sigmoid',
+            classes = 1
+            )
+        return model
 
     
 

@@ -1,8 +1,8 @@
-nohup python ./run.py --model "R2Att-Unet" \
-                      --version "v4" \
+nohup python ./run.py --model "manet" \
+                      --version "v6" \
                       --cuda "0" \
-                      --ts_batch_size 5\
-                      --vs_batch_size 1\
+                      --ts_batch_size 64\
+                      --vs_batch_size 8\
                       --epochs 200 \
                       --loss "bce" \
                       --optimizer "AdamW" \

@@ -1,0 +1,157 @@
+{
+    "os": "Linux-5.15.0-100-generic-x86_64-with-glibc2.17",
+    "python": "3.8.18",
+    "heartbeatAt": "2024-03-21T02:06:38.331644",
+    "startedAt": "2024-03-21T02:06:37.525600",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--model",
+        "manet",
+        "--version",
+        "v6",
+        "--cuda",
+        "0",
+        "--ts_batch_size",
+        "64",
+        "--vs_batch_size",
+        "8",
+        "--epochs",
+        "200",
+        "--loss",
+        "bce",
+        "--optimizer",
+        "AdamW",
+        "--learning_rate",
+        "0.001",
+        "--scheduler",
+        "lambda",
+        "--pretrain",
+        "no",
+        "--pretrained_model",
+        "practice",
+        "--error_signal",
+        "no",
+        "--wandb",
+        "yes"
+    ],
+    "state": "running",
+    "program": "./run.py",
+    "codePathLocal": "run.py",
+    "codePath": "train/run.py",
+    "git": {
+        "remote": "https://github.com/dablro12/-Challenge-AI_SPARK.git",
+        "commit": "b82c875f2ae80213e982b7c70b523245ebb3887f"
+    },
+    "email": "dablro1232@gmail.com",
+    "root": "/home/eiden/eiden/satellite",
+    "host": "eiden",
+    "username": "eiden",
+    "executable": "/home/eiden/anaconda3/envs/fire/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3488.2168125,
+        "min": 800.0,
+        "max": 5150.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3311.469,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5300.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        },
+        {
+            "current": 3500.0,
+            "min": 800.0,
+            "max": 5100.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 915.3232879638672,
+            "used": 587.4500579833984
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4090",
+            "memory_total": 25757220864
+        }
+    ],
+    "memory": {
+        "total": 31.169631958007812
+    }
+}

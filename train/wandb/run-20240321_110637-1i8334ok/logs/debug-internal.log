@@ -1,0 +1,213 @@
+2024-03-21 11:06:37,536 INFO    StreamThr :1743395 [internal.py:wandb_internal():86] W&B internal server running at pid: 1743395, started at: 2024-03-21 11:06:37.536361
+2024-03-21 11:06:37,537 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status
+2024-03-21 11:06:37,541 INFO    WriterThread:1743395 [datastore.py:open_for_write():87] open: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/run-1i8334ok.wandb
+2024-03-21 11:06:37,541 DEBUG   SenderThread:1743395 [sender.py:send():378] send: header
+2024-03-21 11:06:37,564 DEBUG   SenderThread:1743395 [sender.py:send():378] send: run
+2024-03-21 11:06:38,071 INFO    SenderThread:1743395 [dir_watcher.py:__init__():211] watching files in: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files
+2024-03-21 11:06:38,071 INFO    SenderThread:1743395 [sender.py:_start_run_threads():1099] run started: 1i8334ok with start time 1710986797.536538
+2024-03-21 11:06:38,074 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: check_version
+2024-03-21 11:06:38,074 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: check_version
+2024-03-21 11:06:38,285 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: run_start
+2024-03-21 11:06:38,307 DEBUG   HandlerThread:1743395 [system_info.py:__init__():26] System info init
+2024-03-21 11:06:38,307 DEBUG   HandlerThread:1743395 [system_info.py:__init__():41] System info init done
+2024-03-21 11:06:38,307 INFO    HandlerThread:1743395 [system_monitor.py:start():194] Starting system monitor
+2024-03-21 11:06:38,307 INFO    SystemMonitor:1743395 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-03-21 11:06:38,307 INFO    HandlerThread:1743395 [system_monitor.py:probe():214] Collecting system info
+2024-03-21 11:06:38,307 INFO    SystemMonitor:1743395 [interfaces.py:start():190] Started cpu monitoring
+2024-03-21 11:06:38,308 INFO    SystemMonitor:1743395 [interfaces.py:start():190] Started disk monitoring
+2024-03-21 11:06:38,308 INFO    SystemMonitor:1743395 [interfaces.py:start():190] Started gpu monitoring
+2024-03-21 11:06:38,309 INFO    SystemMonitor:1743395 [interfaces.py:start():190] Started memory monitoring
+2024-03-21 11:06:38,309 INFO    SystemMonitor:1743395 [interfaces.py:start():190] Started network monitoring
+2024-03-21 11:06:38,331 DEBUG   HandlerThread:1743395 [system_info.py:probe():150] Probing system
+2024-03-21 11:06:38,337 DEBUG   HandlerThread:1743395 [system_info.py:_probe_git():135] Probing git
+2024-03-21 11:06:38,355 DEBUG   HandlerThread:1743395 [system_info.py:_probe_git():143] Probing git done
+2024-03-21 11:06:38,355 DEBUG   HandlerThread:1743395 [system_info.py:probe():198] Probing system done
+2024-03-21 11:06:38,356 DEBUG   HandlerThread:1743395 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-100-generic-x86_64-with-glibc2.17', 'python': '3.8.18', 'heartbeatAt': '2024-03-21T02:06:38.331644', 'startedAt': '2024-03-21T02:06:37.525600', 'docker': None, 'cuda': None, 'args': ('--model', 'manet', '--version', 'v6', '--cuda', '0', '--ts_batch_size', '64', '--vs_batch_size', '8', '--epochs', '200', '--loss', 'bce', '--optimizer', 'AdamW', '--learning_rate', '0.001', '--scheduler', 'lambda', '--pretrain', 'no', '--pretrained_model', 'practice', '--error_signal', 'no', '--wandb', 'yes'), 'state': 'running', 'program': './run.py', 'codePathLocal': 'run.py', 'codePath': 'train/run.py', 'git': {'remote': 'https://github.com/dablro12/-Challenge-AI_SPARK.git', 'commit': 'b82c875f2ae80213e982b7c70b523245ebb3887f'}, 'email': 'dablro1232@gmail.com', 'root': '/home/eiden/eiden/satellite', 'host': 'eiden', 'username': 'eiden', 'executable': '/home/eiden/anaconda3/envs/fire/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 3488.2168125, 'min': 800.0, 'max': 5150.0}, 'cpu_freq_per_core': [{'current': 3500.0, 'min': 800.0, 'max': 5100.0}, {'current': 3500.0, 'min': 800.0, 'max': 5100.0}, {'current': 3500.0, 'min': 800.0, 'max': 5100.0}, {'current': 3500.0, 'min': 800.0, 'max': 5100.0}, {'current': 3500.0, 'min': 800.0, 'max': 5300.0}, {'current': 3500.0, 'min': 800.0, 'max': 5300.0}, {'current': 3500.0, 'min': 800.0, 'max': 5100.0}, {'current': 3311.469, 'min': 800.0, 'max': 5100.0}, {'current': 3500.0, 'min': 800.0, 'max': 5100.0}, {'current': 3500.0, 'min': 800.0, 'max': 5100.0}, {'current': 3500.0, 'min': 800.0, 'max': 5100.0}, {'current': 3500.0, 'min': 800.0, 'max': 5100.0}, {'current': 3500.0, 'min': 800.0, 'max': 5300.0}, {'current': 3500.0, 'min': 800.0, 'max': 5300.0}, {'current': 3500.0, 'min': 800.0, 'max': 5100.0}, {'current': 3500.0, 'min': 800.0, 'max': 5100.0}], 'disk': {'/': {'total': 915.3232879638672, 'used': 587.4500579833984}}, 'gpu': 'NVIDIA GeForce RTX 4090', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}], 'memory': {'total': 31.169631958007812}}
+2024-03-21 11:06:38,356 INFO    HandlerThread:1743395 [system_monitor.py:probe():224] Finished collecting system info
+2024-03-21 11:06:38,356 INFO    HandlerThread:1743395 [system_monitor.py:probe():227] Publishing system info
+2024-03-21 11:06:38,356 DEBUG   HandlerThread:1743395 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-03-21 11:06:39,072 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_created():271] file/dir created: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/conda-environment.yaml
+2024-03-21 11:06:40,213 DEBUG   HandlerThread:1743395 [system_info.py:_save_conda():219] Saving conda packages done
+2024-03-21 11:06:40,213 INFO    HandlerThread:1743395 [system_monitor.py:probe():229] Finished publishing system info
+2024-03-21 11:06:40,223 DEBUG   SenderThread:1743395 [sender.py:send():378] send: files
+2024-03-21 11:06:40,223 INFO    SenderThread:1743395 [sender.py:_save_file():1365] saving file wandb-metadata.json with policy now
+2024-03-21 11:06:40,284 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: python_packages
+2024-03-21 11:06:40,284 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: python_packages
+2024-03-21 11:06:40,285 DEBUG   SenderThread:1743395 [sender.py:send():378] send: telemetry
+2024-03-21 11:06:40,331 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:06:40,331 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:06:40,331 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:06:40,596 DEBUG   SenderThread:1743395 [sender.py:send():378] send: telemetry
+2024-03-21 11:06:40,596 DEBUG   SenderThread:1743395 [sender.py:send():378] send: run
+2024-03-21 11:06:40,798 INFO    SenderThread:1743395 [sender.py:send_run():973] updated run: 1i8334ok
+2024-03-21 11:06:40,949 INFO    wandb-upload_0:1743395 [upload_job.py:push():131] Uploaded file /tmp/tmpt86catlmwandb/qu059awp-wandb-metadata.json
+2024-03-21 11:06:41,072 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/config.yaml
+2024-03-21 11:06:41,072 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/conda-environment.yaml
+2024-03-21 11:06:41,072 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_created():271] file/dir created: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/wandb-metadata.json
+2024-03-21 11:06:41,072 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_created():271] file/dir created: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/requirements.txt
+2024-03-21 11:06:42,072 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_created():271] file/dir created: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:06:42,932 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:06:44,073 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:06:46,073 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:06:48,073 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:06:48,321 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:06:50,074 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:06:52,074 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:06:54,075 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:06:54,104 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:06:55,284 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:06:55,285 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:06:55,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:06:56,075 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:06:59,894 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:07:00,076 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:02,076 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:04,077 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:05,673 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:07:06,077 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:08,078 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:10,078 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:10,284 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:07:10,285 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:07:10,285 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:07:11,459 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:07:12,078 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:12,079 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/config.yaml
+2024-03-21 11:07:14,079 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:16,079 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:17,244 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:07:18,080 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:20,080 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:22,081 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:23,049 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:07:24,081 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:25,285 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:07:25,285 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:07:25,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:07:26,082 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:28,082 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:28,852 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:07:30,082 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:32,083 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:34,083 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:34,699 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:07:36,084 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:38,084 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:38,310 DEBUG   SystemMonitor:1743395 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-03-21 11:07:38,310 DEBUG   SenderThread:1743395 [sender.py:send():378] send: stats
+2024-03-21 11:07:40,085 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:40,285 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:07:40,285 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:07:40,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:07:40,563 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:07:42,085 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:44,085 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:46,086 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:46,392 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:07:48,086 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:50,087 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:52,087 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:52,255 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:07:54,087 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:55,285 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:07:55,286 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:07:55,287 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:07:56,088 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:58,088 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:07:58,108 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:08:00,089 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:02,089 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:03,954 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:08:04,090 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:06,090 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:08,090 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:08,311 DEBUG   SenderThread:1743395 [sender.py:send():378] send: stats
+2024-03-21 11:08:09,797 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:08:10,091 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:10,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:08:10,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:08:10,286 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:08:12,091 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:14,092 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:15,667 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:08:16,092 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:18,093 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:20,093 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:21,533 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:08:22,093 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:24,094 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:25,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:08:25,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:08:25,286 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:08:26,094 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:27,409 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:08:28,094 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:30,095 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:32,095 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:33,284 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:08:34,096 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:36,096 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:38,096 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:38,311 DEBUG   SenderThread:1743395 [sender.py:send():378] send: stats
+2024-03-21 11:08:38,311 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:08:40,097 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:40,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:08:40,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:08:40,286 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:08:42,097 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:44,063 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:08:44,098 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:46,098 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:48,098 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:49,952 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:08:50,099 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:52,099 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:54,100 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:55,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:08:55,286 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:08:55,287 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:08:56,100 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:08:57,620 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:09:00,102 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:02,102 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:02,698 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:09:04,102 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:06,103 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:08,103 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:08,311 DEBUG   SenderThread:1743395 [sender.py:send():378] send: stats
+2024-03-21 11:09:08,312 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:09:10,104 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:10,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:09:10,286 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:09:10,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:09:12,104 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:13,470 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:09:14,104 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:16,105 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:19,106 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:19,350 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:09:21,106 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:23,107 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:25,107 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:25,239 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:09:25,286 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:09:25,287 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:09:25,287 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:09:27,108 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:29,108 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:31,108 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:31,139 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:09:33,109 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:35,109 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:37,048 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:09:37,110 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:38,312 DEBUG   SenderThread:1743395 [sender.py:send():378] send: stats
+2024-03-21 11:09:39,110 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:40,287 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-21 11:09:40,287 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-21 11:09:40,287 DEBUG   SenderThread:1743395 [sender.py:send_request():405] send_request: stop_status
+2024-03-21 11:09:41,110 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:42,966 DEBUG   HandlerThread:1743395 [handler.py:handle_request():146] handle_request: status_report
+2024-03-21 11:09:43,111 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:45,111 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
+2024-03-21 11:09:47,111 INFO    Thread-12 :1743395 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/eiden/eiden/satellite/train/wandb/run-20240321_110637-1i8334ok/files/output.log
