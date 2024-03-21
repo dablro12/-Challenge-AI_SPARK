@@ -24,3 +24,10 @@ config: {'save_path': '../../satellite_model', 'version': 'v6', 'cuda': '0', 'nu
 2024-03-21 11:06:40,284 INFO    MainThread:1743270 [wandb_run.py:_redirect():2161] Wrapping output streams.
 2024-03-21 11:06:40,284 INFO    MainThread:1743270 [wandb_run.py:_redirect():2186] Redirects installed.
 2024-03-21 11:06:40,285 INFO    MainThread:1743270 [wandb_init.py:init():847] run started, returning control to user process
+2024-03-21 15:13:18,753 INFO    MainThread:1743270 [wandb_run.py:_finish():1970] finishing run dablro1232/satellite/1i8334ok
+2024-03-21 15:13:18,753 INFO    MainThread:1743270 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 0
+2024-03-21 15:13:18,754 INFO    MainThread:1743270 [wandb_run.py:_restore():2193] restore
+2024-03-21 15:13:18,754 INFO    MainThread:1743270 [wandb_run.py:_restore():2199] restore done
+2024-03-21 15:13:33,553 INFO    MainThread:1743270 [wandb_run.py:_footer_history_summary_info():3851] rendering history
+2024-03-21 15:13:33,555 INFO    MainThread:1743270 [wandb_run.py:_footer_history_summary_info():3883] rendering summary
+2024-03-21 15:13:33,568 INFO    MainThread:1743270 [wandb_run.py:_footer_sync_info():3810] logging synced files

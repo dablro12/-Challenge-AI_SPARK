@@ -404,7 +404,7 @@ class Train(nn.Module):
                 }, step = epoch)
             
             # Early Sooping
-            if valid_losses > self.best_loss:
+            if valid_losses < self.best_loss:
                 self.best_loss = valid_losses
                 self.early_stop_cnt = 0
                 self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
