@@ -22,6 +22,8 @@ class get_pretrained_model:
             model = self.unet_plus_plus()
         else:
             raise NotImplementedError('model [{:s}] not recognized'.format(self.model_name))
+
+        print(f"Model name : {self.model_name}")
         return model
     
     def U_Net(self):

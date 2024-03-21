@@ -1,8 +1,8 @@
 nohup python ./run.py --model "Att-Unet" \
                       --version "v3" \
                       --cuda "0" \
-                      --ts_batch_size 12\
-                      --vs_batch_size 2 \
+                      --ts_batch_size 4\
+                      --vs_batch_size 1\
                       --epochs 200 \
                       --loss "bce" \
                       --optimizer "AdamW" \
