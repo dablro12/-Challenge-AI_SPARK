@@ -31,10 +31,6 @@ class get_pretrained_model:
     def U_Net(self):
         model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet',
                                in_channels=3, out_channels=1, init_features=32, pretrained=True)
-        model.conv = nn.Sequential(
-            nn.Conv2d(32, 1, kernel_size=(1, 1), stride=(1, 1)),
-            nn.Sigmoid()
-        )
         return model
     def unet_plus_plus(self):
         model = smp.UnetPlusPlus(
