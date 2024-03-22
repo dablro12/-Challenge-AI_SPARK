@@ -35,6 +35,8 @@ import torch.optim.lr_scheduler as lr_scheduler
 
 #trasnform
 from torchvision import transforms
+from utils.transform import *
+
 
 #dataset
 from utils.dataset import CustomDataset
@@ -71,6 +73,7 @@ import torch.optim as optim
 
 #trasnform
 from torchvision import transforms
+from utils import transform
 
 #dataset
 from utils.dataset import CustomDataset
@@ -129,19 +132,17 @@ class Train(nn.Module):
         self.train_csv = '../../dataset/train_meta.csv'
         
         self.train_transform = transforms.Compose([
-            # transforms.Grayscale(num_output_channels=3),
-            # transforms.RandomResizedCrop(size = (224,224), antialias= True),
-            # transforms.RandomRotation((0, 30), interpolation=transforms.InterpolationMode.NEAREST),
-            # transforms.RandomHorizontalFlip(),
-            # transforms.ColorJitter(brightness=0.25, contrast=0.25),
-            # transforms.ToTensor(),
+            transforms.ToTensor(),
+            RandomColorJitterTransform(brightness=0.05, contrast=0.05, saturation=0.05, hue=0.05),
+            # ColorJitterTransform(brightness=0.05, contrast=0.05, saturation=0.05, hue=0.1),  # Color space transformation
+            RandomDropout(p=0.2),  # Random dropou
         ])
 
 
         dataset = CustomDataset(
             csv_path= self.train_csv,
             # transform= self.train_transform,
-            transform= None, #None으로 세팅
+            transform= self.train_transform, #Default : None으로 세팅
             MAX_PIXEL_VALUE= 65535,
             band = (7,6,2) #기존 세팅 
         )
@@ -153,7 +154,7 @@ class Train(nn.Module):
         self.train_loader = DataLoader(
                                     dataset = self.train_dataset,
                                     batch_size = args.ts_batch_size,
-                                    # shuffle = True,
+                                    shuffle = True,
                                     # sampler= ImbalancedDatasetSampler(
                                     #     train_dataset,
                                     #     labels = train_dataset.getlabels()
@@ -234,7 +235,7 @@ class Train(nn.Module):
                 torch.manual_seed_all(42)
                 
             # self.model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet', in_channels=3, out_channels=1, init_features=32, pretrained=True)
-            self.model = get_pretrained_model('manet').get()
+            self.model = get_pretrained_model('unet').get()
             self.model.to(self.device)
 
             print(f"Training Model : {args.model} | status : \033[42mNEW\033[0m")
@@ -345,7 +346,7 @@ class Train(nn.Module):
             self.model.train()
             for _, (images, masks) in tqdm(enumerate(self.train_loader), total=len(self.train_loader)):
                 images, masks = images.to(self.device), masks.to(self.device)
-                images = images.permute(0,3,1,2)
+                images = images
                 masks = masks.permute(0,3,1,2)
                 
                 preds = self.model(images)
@@ -373,14 +374,13 @@ class Train(nn.Module):
                     "tr_bce" : self.metrics['tr_bce'][-1],
                     "tr_mIOU" : self.metrics['tr_iou'][-1],
                 }, step = epoch)
-                
         
             ################################# valid #################################
             with torch.no_grad():
                 self.model.eval()
                 for _, (images, masks) in tqdm(enumerate(self.valid_loader), total=len(self.valid_loader)):
                     images, masks = images.to(self.device), masks.to(self.device)
-                    images = images.permute(0,3,1,2)
+                    images = images
                     masks = masks.permute(0,3,1,2)
                     
                     preds = self.model(images)

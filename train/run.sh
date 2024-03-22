@@ -1,8 +1,8 @@
-nohup python ./run.py --model "manet" \
-                      --version "v10" \
+nohup python ./run.py --model "unet" \
+                      --version "v11" \
                       --cuda "0" \
-                      --ts_batch_size 96\
-                      --vs_batch_size 8\
+                      --ts_batch_size 40\
+                      --vs_batch_size 4\
                       --epochs 200 \
                       --loss "bcewithlogits" \
                       --optimizer "AdamW" \

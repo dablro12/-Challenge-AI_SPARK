@@ -48,6 +48,5 @@ class CustomDataset(Dataset):
         # # transform 
         if self.transform:
             images = self.transform(images)
-            masks = self.transform(masks)
         
         return images, masks
