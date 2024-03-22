@@ -234,7 +234,7 @@ class Train(nn.Module):
                 torch.manual_seed_all(42)
                 
             # self.model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet', in_channels=3, out_channels=1, init_features=32, pretrained=True)
-            self.model = get_pretrained_model('unet').get()
+            self.model = get_pretrained_model('manet').get()
             self.model.to(self.device)
 
             print(f"Training Model : {args.model} | status : \033[42mNEW\033[0m")
@@ -245,7 +245,7 @@ class Train(nn.Module):
             self.loss = nn.BCEWithLogitsLoss().to(self.device)
             # self.loss = custom_loss.FocalLoss(alpha = 0.25, gamma = 2.0).to(self.device)
             self.optimizer = optim.AdamW(self.model.parameters(), lr = args.learning_rate)
-            # self.scheduler = lr_scheduler.LambdaLR(self.optimizer, lr_lambda= lambda epoch: 0.95**epoch, last_epoch = -1, verbose = True)
+            self.scheduler = lr_scheduler.LambdaLR(self.optimizer, lr_lambda= lambda epoch: 0.95**epoch, last_epoch = -1, verbose = True)
 
             self.epochs = args.epochs
             self.epoch = 0
@@ -358,7 +358,7 @@ class Train(nn.Module):
                 
                 train_losses += train_loss.item()
                 train_ious += train_iou
-            # self.scheduler.step()
+            self.scheduler.step()
 
             self.metrics['tr_bce'].append(train_losses / len(self.train_loader))
             self.metrics['tr_iou'].append(train_ious / len(self.train_loader))

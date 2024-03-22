@@ -44,10 +44,9 @@ class get_pretrained_model:
     
     def manet(self):
         model = smp.MAnet(
-            encoder_name= "resnet152",
+            encoder_name= "resnet50",
             encoder_weights= "imagenet",
             in_channels = 3,
-            activation= 'sigmoid',
             classes = 1
             )
         return model
@@ -394,7 +393,7 @@ class AttU_Net(nn.Module):
 
         d1 = self.Conv_1x1(d2)
 
-        return torch.sigmoid(d1)
+        return d1
 
 
 class R2AttU_Net(nn.Module):
