@@ -46,7 +46,6 @@ from torchsummary import summary
 from torchsampler import ImbalancedDatasetSampler
 
 
-from utils import models 
 #metric
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc
 import torchmetrics.functional as tf
@@ -83,7 +82,6 @@ from torch.utils.data import DataLoader
 import torchvision.models as models
 from network.models import get_pretrained_model
 # from network.models import U_Net, R2U_Net, AttU_Net, R2AttU_Net
-from utils.models import *
 import utils.loss as loss 
 
 #metric
@@ -129,7 +127,7 @@ class Train(nn.Module):
         
         ########################## Data set & Data Loader ##############################
         # Data set & Data Loader
-        self.train_csv = '../../dataset/train_meta.csv'
+        self.train_csv = '../../HDD/dataset/train_meta.csv'
         
         self.train_transform = transforms.Compose([
             transforms.ToTensor(),
@@ -142,7 +140,7 @@ class Train(nn.Module):
         dataset = CustomDataset(
             csv_path= self.train_csv,
             # transform= self.train_transform,
-            transform= self.train_transform, #Default : None으로 세팅
+            transform= None, #Default : None으로 세팅
             MAX_PIXEL_VALUE= 65535,
             band = (7,6,2) #기존 세팅 
         )
@@ -235,7 +233,7 @@ class Train(nn.Module):
                 torch.manual_seed_all(42)
                 
             # self.model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet', in_channels=3, out_channels=1, init_features=32, pretrained=True)
-            self.model = get_pretrained_model('unet').get()
+            self.model = get_pretrained_model('monai_swinunet').get()
             self.model.to(self.device)
 
             print(f"Training Model : {args.model} | status : \033[42mNEW\033[0m")
@@ -276,8 +274,8 @@ class Train(nn.Module):
         print("\033[41mFinished Initalization\033[0m")
         print("\033[41mStart Training\033[0m")
         
-        
-    def checkpoint(self, SAVE_DIR, checkpoint_datetime, model, optimizer, lr, loss, metrics, epoch, epochs, images, masks, preds):
+            
+    def checkpoint(self, SAVE_DIR, checkpoint_datetime, model, optimizer, lr, loss, metrics, epoch, epochs, images, masks, preds, tag = False):
         # loss plot
         plt.figure(figsize=(10, 7))
         plt.subplot(121)
@@ -291,51 +289,52 @@ class Train(nn.Module):
         plt.title("mIOU | UP GOOD")
         plt.legend()
         plt.tight_layout()
-        plt.savefig(os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}_loss.png'))
+        if tag == True:
+            plt.savefig(os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}_loss.png'))
         plt.close()
         
         # mask plot
         plt.figure(figsize=(10, 7))
         plt.subplot(131)
-        plt.imshow(images[0].cpu().permute(1,2,0))
+        plt.imshow(images[0].cpu().detach().permute(2,1,0).numpy())
         plt.title('image')
         plt.axis('off')
         plt.subplot(132)
-        plt.imshow(masks[0].cpu().permute(1,2,0))
+        plt.imshow(masks[0].cpu().detach().permute(2,1,0).numpy(), cmap='gray')
         plt.title('mask')
         plt.axis('off')
         plt.subplot(133)
-        plt.imshow(preds[0].cpu().permute(1,2,0))
+        plt.imshow(preds[0].cpu().detach().permute(2,1,0).numpy(), cmap='gray')
         plt.title('pred')
         plt.axis('off')
         plt.tight_layout()
-        plt.savefig(os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}_mask.png'))
+        if tag == True:
+            plt.savefig(os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}_mask.png'))
         plt.close()
         
-        torch.save({
-            "model" : f"{epoch}",
-            "epoch" : epoch,
-            "epochs" : epochs,
-            "model_state_dict" : model.state_dict(),
-            "optimizer_state_dict" : optimizer.state_dict(),
-            "learning_rate" : lr,
-            "loss" : loss,
-            "metric" : metrics,
-            "description" : f"segmentation model training status : {epoch}/{epochs}"
-        },
-        os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}.pt'))
-        print(f"#"*30, "model save", "#"*30)
+        if tag == True:
+            torch.save({
+                "model" : f"{epoch}",
+                "epoch" : epoch,
+                "epochs" : epochs,
+                "model_state_dict" : model.state_dict(),
+                "optimizer_state_dict" : optimizer.state_dict(),
+                "learning_rate" : lr,
+                "loss" : loss,
+                "metric" : metrics,
+                "description" : f"segmentation model training status : {epoch}/{epochs}"
+            },
+            os.path.join(SAVE_DIR, checkpoint_datetime+f'_{epoch}_{epochs}.pt'))
+            print(f"#"*30, f"SAVE PATH : {SAVE_DIR}", "#"*30)
         
     def calculate_iou(self, preds, masks, threshold=0.5):
         # 예측 마스크를 이진 형태로 변환
-
         preds = (preds > threshold).float()
         
         intersection = torch.sum(preds * masks)
         union = torch.sum((preds + masks) > 0)
         
         iou = (intersection + 1e-7) / (union + 1e-7)  # 0으로 나누는 경우를 방지하기 위해 작은 값(1e-7)을 추가
-        
         return iou
     
     def fit(self):
@@ -346,13 +345,10 @@ class Train(nn.Module):
             self.model.train()
             for _, (images, masks) in tqdm(enumerate(self.train_loader), total=len(self.train_loader)):
                 images, masks = images.to(self.device), masks.to(self.device)
-                images = images
-                masks = masks.permute(0,3,1,2)
                 
                 preds = self.model(images)
                 train_loss = self.loss(preds, masks).to(self.device)
                 train_iou = self.calculate_iou(preds, masks).cpu().detach().numpy()
-
                 self.optimizer.zero_grad()
                 train_loss.backward()
                 self.optimizer.step()
@@ -380,13 +376,11 @@ class Train(nn.Module):
                 self.model.eval()
                 for _, (images, masks) in tqdm(enumerate(self.valid_loader), total=len(self.valid_loader)):
                     images, masks = images.to(self.device), masks.to(self.device)
-                    images = images
-                    masks = masks.permute(0,3,1,2)
                     
                     preds = self.model(images)
                     
                     valid_loss = self.loss(preds, masks).to(self.device)
-                    valid_iou = self.calculate_iou(preds, masks).cpu().numpy()
+                    valid_iou = self.calculate_iou(preds, masks).cpu().detach().numpy()
                     
                     valid_losses += valid_loss.item()
                     valid_ious += valid_iou
@@ -407,16 +401,16 @@ class Train(nn.Module):
             if valid_losses < self.best_loss:
                 self.best_loss = valid_losses
                 self.early_stop_cnt = 0
-                self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
+                self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds, tag = True)
             else:
                 self.early_stop_cnt += 1
                 if self.early_stop_cnt >= self.early_stopping_epochs:
                     print(f"Early Stops!!! : {epoch}/{self.epochs}")
-                    self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
+                    self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds, tag = True)
                     break
             try:
                 if valid_losses > np.array(self.metrics['vl_bce'])[-1].max():
-                    self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds)
+                    self.checkpoint(self.save_path, self.checkpoint_datetime, self.model, self.optimizer, lr, self.loss, self.metrics, epoch, self.epochs, images, masks, preds, tag = True)
             except Exception as e:
                 print(e)
                 pass 

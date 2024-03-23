@@ -1,0 +1,87 @@
+2024-03-23 17:36:30,734 INFO    MainThread:74246 [wandb_setup.py:_flush():76] Current SDK version is 0.16.4
+2024-03-23 17:36:30,734 INFO    MainThread:74246 [wandb_setup.py:_flush():76] Configure stats pid to 74246
+2024-03-23 17:36:30,735 INFO    MainThread:74246 [wandb_setup.py:_flush():76] Loading settings from /home/eiden/.config/wandb/settings
+2024-03-23 17:36:30,735 INFO    MainThread:74246 [wandb_setup.py:_flush():76] Loading settings from /home/eiden/eiden/satellite/train/wandb/settings
+2024-03-23 17:36:30,735 INFO    MainThread:74246 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-23 17:36:30,735 INFO    MainThread:74246 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-03-23 17:36:30,735 INFO    MainThread:74246 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train/run.py', 'program_abspath': '/home/eiden/eiden/satellite/train/run.py', 'program': './run.py'}
+2024-03-23 17:36:30,735 INFO    MainThread:74246 [wandb_init.py:_log_setup():526] Logging user logs to /home/eiden/eiden/satellite/train/wandb/run-20240323_173630-8rig1wb6/logs/debug.log
+2024-03-23 17:36:30,735 INFO    MainThread:74246 [wandb_init.py:_log_setup():527] Logging internal logs to /home/eiden/eiden/satellite/train/wandb/run-20240323_173630-8rig1wb6/logs/debug-internal.log
+2024-03-23 17:36:30,735 INFO    MainThread:74246 [wandb_init.py:init():566] calling init triggers
+2024-03-23 17:36:30,736 INFO    MainThread:74246 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'save_path': '../../satellite_model', 'version': 'v12', 'cuda': '0', 'num_workers': 4, 'wandb': 'yes', 'pretrain': 'no', 'pretrained_model': 'practice', 'error_signal': 'no', 'ts_batch_size': 88, 'vs_batch_size': 8, 'learning_rate': 0.0002, 'epochs': 200, 'optimizer': 'AdamW', 'scheduler': 'lambda', 'loss': 'bcewithlogits', 'valid_epoch': 8, 'model': 'swinunet', 'training_date': '240323'}
+2024-03-23 17:36:30,736 INFO    MainThread:74246 [wandb_init.py:init():616] starting backend
+2024-03-23 17:36:30,736 INFO    MainThread:74246 [wandb_init.py:init():620] setting up manager
+2024-03-23 17:36:30,744 INFO    MainThread:74246 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-03-23 17:36:30,746 INFO    MainThread:74246 [wandb_init.py:init():628] backend started and connected
+2024-03-23 17:36:30,753 INFO    MainThread:74246 [wandb_init.py:init():720] updated telemetry
+2024-03-23 17:36:30,765 INFO    MainThread:74246 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-03-23 17:36:32,977 INFO    Thread-1  :74246 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/urllib3/connectionpool.py", line 1099, in _validate_conn
+    conn.connect()
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/urllib3/connection.py", line 616, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/urllib3/connection.py", line 205, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7fc183c7a460>: Failed to resolve 'api.wandb.ai' ([Errno -3] Temporary failure in name resolution)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fc183c7a460>: Failed to resolve 'api.wandb.ai' ([Errno -3] Temporary failure in name resolution)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/wandb/sdk/internal/internal_api.py", line 369, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/wandb/sdk/lib/gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/eiden/anaconda3/envs/eiden/lib/python3.8/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fc183c7a460>: Failed to resolve 'api.wandb.ai' ([Errno -3] Temporary failure in name resolution)"))
+2024-03-23 17:37:03,771 INFO    MainThread:74246 [wandb_run.py:_on_init():2262] communicating current version
+2024-03-23 17:37:04,136 INFO    MainThread:74246 [wandb_run.py:_on_init():2271] got version response 
+2024-03-23 17:37:04,136 INFO    MainThread:74246 [wandb_init.py:init():804] starting run threads in backend
+2024-03-23 17:37:06,119 INFO    MainThread:74246 [wandb_run.py:_console_start():2241] atexit reg
+2024-03-23 17:37:06,119 INFO    MainThread:74246 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-03-23 17:37:06,119 INFO    MainThread:74246 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-03-23 17:37:06,119 INFO    MainThread:74246 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-03-23 17:37:06,119 INFO    MainThread:74246 [wandb_init.py:init():847] run started, returning control to user process
+2024-03-23 17:37:14,469 WARNING MsgRouterThr:74246 [router.py:message_loop():77] message_loop has been closed

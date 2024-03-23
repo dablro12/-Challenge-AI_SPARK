@@ -1,0 +1,16 @@
+Model name : monai_swinunet
+Training Model : swinunet | status : [42mNEW
+[41mFinished Initalization
+[41mStart Training
+  0%|          | 0/344 [00:02<?, ?it/s]
+  0%|          | 0/200 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "./run.py", line 12, in <module>
+    main()
+  File "./run.py", line 9, in main
+    trainer.fit()
+  File "/home/eiden/eiden/satellite/train/train.py", line 352, in fit
+    train_iou = self.calculate_iou(preds, masks).cpu().detach().numpy()
+  File "/home/eiden/eiden/satellite/train/train.py", line 332, in calculate_iou
+    preds = (preds > threshold).float()
+TypeError: '>' not supported between instances of 'Train' and 'Tensor'

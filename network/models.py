@@ -3,7 +3,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.nn import init
-import segmentation_models_pytorch as smp 
 
 class get_pretrained_model:
     def __init__(self, model_name):
@@ -35,6 +34,7 @@ class get_pretrained_model:
                                in_channels=3, out_channels=1, init_features=32, pretrained=True)
         return model
     def unet_plus_plus(self):
+        import segmentation_models_pytorch as smp 
         model = smp.UnetPlusPlus(
             encoder_name= "resnet34",
             encoder_weights= "imagenet",
@@ -45,6 +45,7 @@ class get_pretrained_model:
         return model 
     
     def manet(self):
+        import segmentation_models_pytorch as smp 
         model = smp.MAnet(
             encoder_name= "resnet50",
             encoder_weights= "imagenet",
@@ -56,7 +57,7 @@ class get_pretrained_model:
     def monai_swinunet(self):
         from monai.networks.nets import swin_unetr
         model = swin_unetr.SwinUNETR(
-            img_size = (96,96),
+            img_size = (256,256),
             in_channels = 3,
             out_channels = 1,
             use_checkpoint = True,

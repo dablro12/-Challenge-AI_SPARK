@@ -1,8 +1,8 @@
-nohup python ./run.py --model "unet" \
-                      --version "v11" \
+nohup python ./run.py --model "swinunet" \
+                      --version "v12" \
                       --cuda "0" \
-                      --ts_batch_size 40\
-                      --vs_batch_size 4\
+                      --ts_batch_size 128\
+                      --vs_batch_size 16\
                       --epochs 200 \
                       --loss "bcewithlogits" \
                       --optimizer "AdamW" \
