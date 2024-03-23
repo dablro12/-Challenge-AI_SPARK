@@ -18,7 +18,7 @@ class CustomDataset(Dataset):
         self.type = type 
         df = pd.read_csv(csv_path)
         # os.pathconf('../')
-        image_paths = f'../../dataset/{type}_img/' + df[f'{type}_img']
+        image_paths = f'../..//dataset/{type}_img/' + df[f'{type}_img']
         mask_paths = f'../../dataset/{type}_mask/' + df[f'{type}_mask']
         
         return  image_paths, mask_paths
@@ -48,5 +48,9 @@ class CustomDataset(Dataset):
         # # transform 
         if self.transform:
             images = self.transform(images)
-        
+            masks = torch.tensor(masks).permute(2,0,1)
+            print(f"*********Transformation Complete********")
+        else:
+            images = torch.tensor(images).permute(2,0,1)
+            masks = torch.tensor(masks).permute(2,0,1)
         return images, masks

@@ -22,6 +22,8 @@ class get_pretrained_model:
             model = self.unet_plus_plus()
         elif self.model_name == 'manet':
             model = self.manet()
+        elif self.model_name == 'monai_swinunet':
+            model = self.monai_swinunet()
         else:
             raise NotImplementedError('model [{:s}] not recognized'.format(self.model_name))
 
@@ -50,7 +52,17 @@ class get_pretrained_model:
             classes = 1
             )
         return model
-
+    
+    def monai_swinunet(self):
+        from monai.networks.nets import swin_unetr
+        model = swin_unetr.SwinUNETR(
+            img_size = (96,96),
+            in_channels = 3,
+            out_channels = 1,
+            use_checkpoint = True,
+            spatial_dims = 2,
+        )
+        return model
     
 
 def init_weights(net, init_type='normal', gain=0.02):
